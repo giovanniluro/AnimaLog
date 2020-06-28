@@ -14,6 +14,7 @@ export const Form = styled.form<FormProps>`
   flex-direction: column;
   align-items: center;
   display: none;
+  position: relative;
 
   ${props => !props.logged && !props.isHidden && css`
     display: flex;
@@ -61,6 +62,14 @@ export const Welcome = styled.div<FormProps>`
   align-items: center;
   position:relative;
   display: none;
+
+  img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    margin-right:15px;
+    border: 1px solid rgba(0,0,0, 0.4);
+  }
 
   p {
     font-size: 24px;
