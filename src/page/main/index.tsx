@@ -19,6 +19,7 @@ const Main: React.FC = () => {
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
   const [user, setUser] = useState<User>({} as User);
+  const [showError, setShowError] = useState(false);
 
   const handleSubmit = useCallback(async (e) => {
     e.preventDefault();
@@ -33,16 +34,25 @@ const Main: React.FC = () => {
         setLogged(true);
       }
 
-      console.log('Password does not match.');
+      else {
+        setShowError(true);
+        setTimeout(() => {
+          setShowError(false);
+        }, 2500);
+      }
     }
     else {
-      console.log('User not found');
+      setShowError(true);
+      setTimeout(() => {
+        setShowError(false);
+      }, 2500);
     }
 
   }, [login, password]);
 
   const handleLogout = useCallback(() => {
     setLogged(false);
+    setShowError(false);
   }, []);
 
   return (
@@ -51,6 +61,7 @@ const Main: React.FC = () => {
         <Input name="Login" type="text" value={login} onChange={e => setLogin(e.target.value)} />
         <Input name="Senha" type="password" value={password} onChange={e => setPassword(e.target.value)} />
         <button type="submit"> Entrar </button>
+        <Toast title="Erro ao tentar fazer login!" description="Por favor, verifique os campos digitados" type="failure" show={showError} />
       </Form>
       <Welcome logged={logged} isHidden={hide} onAnimationEnd={() => { if (!logged) setHide(false) }}>
         <button onClick={handleLogout}><FiPower size={30} /></button>

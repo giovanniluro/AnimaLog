@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container } from './style';
 
 interface ToastProps {
   title: string;
-  description: string;
+  description?: string;
   type: "sucess"|"failure";
+  show: boolean;
 }
 
-const Toast: React.FC<ToastProps> = ({description, title, type}) => {
+const Toast: React.FC<ToastProps> = ({description, title, type, show}) => {
+
   return (
-    <Container type={type}>
+    <Container type={type} show={show}  >
       <p>{title}</p>
       {description && <span>{description}</span>}
     </Container>
