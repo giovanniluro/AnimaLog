@@ -43,11 +43,11 @@ export const Container = styled.div<ContainerProps>`
       transform: translateY(15px);
       opacity: 0;
     }
-    30% {
+    15% {
       transform: translateY(0px);
       opacity: 1;
     }
-    80% {
+    90% {
       transform: translateY(0px);
       opacity: 1;
     }

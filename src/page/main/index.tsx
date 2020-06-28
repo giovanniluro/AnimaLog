@@ -4,6 +4,7 @@ import Input from '../../components/Input';
 import { FiPower } from 'react-icons/fi';
 import api from '../../providers/api';
 import Toast from '../../components/Toast';
+import { useAuth } from '../../hooks/auth';
 
 interface User {
   login: string;
@@ -18,8 +19,8 @@ const Main: React.FC = () => {
   const [hide, setHide] = useState(false);
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
-  const [user, setUser] = useState<User>({} as User);
   const [showError, setShowError] = useState(false);
+  const { user, setUser } = useAuth();
 
   const handleSubmit = useCallback(async (e) => {
     e.preventDefault();
