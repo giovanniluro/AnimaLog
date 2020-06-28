@@ -50,12 +50,20 @@ const Main: React.FC = () => {
       }, 2500);
     }
 
-  }, [login, password]);
+  }, [login, password, setUser]);
 
   const handleLogout = useCallback(() => {
     setLogged(false);
     setShowError(false);
-  }, []);
+    setTimeout(() => {
+      setUser({
+        id: '',
+        login: '',
+        password: '',
+        url: ''
+      });
+    }, 500);
+  }, [setUser]);
 
   return (
     <>

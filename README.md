@@ -1,6 +1,6 @@
 # AnimaLog
 
-Estudo de animações css com react!
+Estudo de animações css e context com react!
 
 ### Para rodar o projeto
 
