@@ -5,6 +5,7 @@ import { FiPower } from 'react-icons/fi';
 import api from '../../providers/api';
 import Toast from '../../components/Toast';
 import { useAuth } from '../../hooks/auth';
+import SquareBackground from '../../components/SquareBackground';
 
 interface User {
   login: string;
@@ -69,6 +70,7 @@ const Main: React.FC = () => {
         <img src={user.url} alt={user.login} />
         <p> Bem-vindo, <strong>{user.login}!</strong></p>
       </Welcome>
+      <SquareBackground quantity={20} />
     </>
   )
 
